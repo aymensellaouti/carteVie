@@ -5,8 +5,11 @@
   class="form-control"
 />
 
+<input type="color" [(ngModel)]="bgc" class="form-control" />
+
 <div [style.backgroundColor]="bgc">Salut</div>
 
 <button (click)="changeColor(defaultColor)" class="btn btn-danger">
   Reset
 </button>
+
