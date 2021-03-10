@@ -1,0 +1,10 @@
+<p [style.color]="color">first works!</p>
+<p [hidden]="isHidden">cc {{ name }}</p>
+
+<button (click)="showHide(monInput.value)" class="btn btn-danger">
+  {{ message }}
+</button>
+
+<input type="text" #monInput class="form-control" />
+
+<app-second></app-second>

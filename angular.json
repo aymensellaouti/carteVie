@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "carteVie"
+    }
+  },
+  "defaultProject": "carteVie",
+  "cli": {
+    "analytics": false
+  }
 }
