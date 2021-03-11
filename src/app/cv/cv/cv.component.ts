@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cv } from '../model/cv';
+import { Logger } from '../../services/logger.service';
+import { HelperService } from '../../services/helper.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -8,9 +11,17 @@ import { Cv } from '../model/cv';
 })
 export class CvComponent implements OnInit {
   selectedCv: Cv = null;
-  constructor() {}
+  constructor(
+    private logger: Logger,
+    private helper: HelperService,
+    private toaster: ToastrService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.logger.logger('cc from cvComponent');
+    this.helper.whoAmI();
+    this.toaster.info('cc');
+  }
   getSelectedCv(selectedCv: Cv) {
     this.selectedCv = selectedCv;
   }

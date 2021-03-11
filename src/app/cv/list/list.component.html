@@ -1,16 +1,14 @@
 <ol class="list-group">
-  <li class="list-group-item">
+  <li
+    *ngFor="let actualCv of cvs; let isEven = even"
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-warning': isEven,
+      'list-group-item-danger': !isEven
+    }"
+  >
     <!-- showCv(cvs[0]) -->
     <!-- showCv(cvs[1]) -->
-    <app-item
-      (selectPersonne)="forwardCv($event)"
-      [cv]="cvs[0]"
-    ></app-item>
-  </li>
-  <li class="list-group-item">
-    <app-item
-      (selectPersonne)="forwardCv($event)"
-      [cv]="cvs[1]"
-    ></app-item>
+    <app-item (selectPersonne)="forwardCv($event)" [cv]="actualCv"></app-item>
   </li>
 </ol>

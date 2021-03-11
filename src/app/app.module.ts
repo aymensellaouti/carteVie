@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
@@ -20,6 +23,9 @@ import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { NgclassComponent } from './directives/ngclass/ngclass.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
+import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { Logger } from './services/logger.service';
 
 @NgModule({
   declarations: [
@@ -39,14 +45,18 @@ import { RainbowDirective } from './directives/rainbow.directive';
     MiniWordComponent,
     NgclassComponent,
     HighlightDirective,
-    RainbowDirective
+    RainbowDirective,
+    BtcToUsdPipe,
+    DefaultImagePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

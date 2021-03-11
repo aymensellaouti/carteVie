@@ -7,7 +7,7 @@ import { Cv } from '../model/cv';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnInit /*, OnChanges, DoCheck*/ {
-  @Input() cv: Cv;
+  @Input() cv: Cv = null;
   constructor() {}
   ngOnInit(): void {}
   /*   ngDoCheck(): void {
