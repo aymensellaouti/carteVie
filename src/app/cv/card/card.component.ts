@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
 import { Cv } from '../model/cv';
 
 @Component({
@@ -6,9 +6,15 @@ import { Cv } from '../model/cv';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit /*, OnChanges, DoCheck*/ {
   @Input() cv: Cv;
   constructor() {}
-
   ngOnInit(): void {}
+  /*   ngDoCheck(): void {
+    console.log('doCheck');
+  }
+
+  ngOnChanges(data) {
+    console.log(data);
+  } */
 }
