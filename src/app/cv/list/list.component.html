@@ -1,1 +1,16 @@
-<p>list works!</p>
+<ol class="list-group">
+  <li class="list-group-item">
+    <!-- showCv(cvs[0]) -->
+    <!-- showCv(cvs[1]) -->
+    <app-item
+      (selectPersonne)="forwardCv($event)"
+      [cv]="cvs[0]"
+    ></app-item>
+  </li>
+  <li class="list-group-item">
+    <app-item
+      (selectPersonne)="forwardCv($event)"
+      [cv]="cvs[1]"
+    ></app-item>
+  </li>
+</ol>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cv } from '../model/cv';
 
 @Component({
@@ -7,8 +7,12 @@ import { Cv } from '../model/cv';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
-  @Input() cv: Cv;
+  @Input() cv: Cv = null;
+  @Output() selectPersonne = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
+  selectItem() {
+    this.selectPersonne.emit(this.cv);
+  }
 }
