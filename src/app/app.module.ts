@@ -36,6 +36,7 @@ import { FrontLayoutComponent } from './pages/front-layout/front-layout.componen
 import { Nf404Component } from './pages/nf404/nf404.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { LoginComponent } from './pages/login/login.component';
     Nf404Component,
     TestFormComponent,
     LoginComponent,
+    AddCvComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,9 +9,12 @@ import { DetailComponent } from './cv/detail/detail.component';
 import { FrontLayoutComponent } from './pages/front-layout/front-layout.component';
 import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.component';
 import { Nf404Component } from './pages/nf404/nf404.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: '',
     component: FrontLayoutComponent,
@@ -20,6 +23,7 @@ const routes: Routes = [
         path: 'cv',
         children: [
           { path: '', component: CvComponent },
+          { path: 'add', component: AddCvComponent },
           { path: ':id', component: DetailComponent },
         ],
       },
