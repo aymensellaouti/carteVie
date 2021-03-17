@@ -34,6 +34,8 @@ import { DetailComponent } from './cv/detail/detail.component';
 import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.component';
 import { FrontLayoutComponent } from './pages/front-layout/front-layout.component';
 import { Nf404Component } from './pages/nf404/nf404.component';
+import { TestFormComponent } from './components/test-form/test-form.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { Nf404Component } from './pages/nf404/nf404.component';
     AdminLayoutComponent,
     FrontLayoutComponent,
     Nf404Component,
+    TestFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
