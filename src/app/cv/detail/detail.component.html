@@ -1,4 +1,4 @@
-<!-- <div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" *ngIf="personne">
   <div class="col-lg-8 push-lg-4">
     <div class="tab-content p-b-3">
       <div class="tab-pane active" id="profile">
@@ -38,10 +38,13 @@
               </tbody>
             </table>
             <div class="d-flex justify-content-center">
+              <button class="btn btn-danger" (click)="deleteCv()">
+                Supprimer
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>

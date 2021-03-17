@@ -11,16 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CvComponent implements OnInit {
   selectedCv: Cv = null;
-  constructor(
-    private logger: Logger,
-    private helper: HelperService,
-    private toaster: ToastrService
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.logger.logger('cc from cvComponent');
-    this.helper.whoAmI();
-    this.toaster.info('cc');
+
   }
   getSelectedCv(selectedCv: Cv) {
     this.selectedCv = selectedCv;

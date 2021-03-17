@@ -31,6 +31,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
 import { DetailComponent } from './cv/detail/detail.component';
+import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.component';
+import { FrontLayoutComponent } from './pages/front-layout/front-layout.component';
+import { Nf404Component } from './pages/nf404/nf404.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { DetailComponent } from './cv/detail/detail.component';
     HeaderComponent,
     RouterSimulatorComponent,
     DetailComponent,
+    AdminLayoutComponent,
+    FrontLayoutComponent,
+    Nf404Component,
   ],
   imports: [
     BrowserModule,
