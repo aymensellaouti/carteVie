@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-color',
@@ -8,10 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ColorComponent implements OnInit {
   @Input() defaultColor = 'blue';
   bgc = '';
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.bgc = this.defaultColor;
+    this.activatedRoute.params.subscribe((mesParams) => {
+      this.bgc = mesParams.myColor;
+    });
   }
   changeColor(newColor: string) {
     this.bgc = newColor;
