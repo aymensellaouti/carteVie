@@ -9,10 +9,17 @@ import { Cv } from '../model/cv';
 export class ItemComponent implements OnInit {
   @Input() cv: Cv = null;
   @Output() selectPersonne = new EventEmitter();
+  @Output() deleteItem = new EventEmitter();
+  @Input() size = 50;
+  @Input() isDiv = true;
+  @Input() isDeleteButton = false;
   constructor() {}
 
   ngOnInit(): void {}
   selectItem() {
     this.selectPersonne.emit(this.cv);
+  }
+  clickOnDeleteButton() {
+    this.deleteItem.emit(this.cv);
   }
 }

@@ -1,0 +1,14 @@
+<div>
+  Liste des personnes pré sélectionnées :
+
+  <div class="embauche">
+    <app-item
+      *ngFor="let embauche of embauchees"
+      [cv]="embauche"
+      [size]="150"
+      [isDiv]="false"
+      [isDeleteButton]="true"
+      (deleteItem)="deleteEmbauche($event)"
+    ></app-item>
+  </div>
+</div>
