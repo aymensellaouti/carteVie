@@ -31,4 +31,9 @@ export class CvService {
       return true;
     }
   }
+
+  addCv(cv: Cv) {
+    cv.id = this.cvs[this.cvs.length -1].id + 1;
+    this.cvs.push(cv);
+  }
 }
