@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { params } from 'src/app/generics';
-
 @Pipe({
   name: 'defaultImage',
 })

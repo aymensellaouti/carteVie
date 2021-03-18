@@ -13,6 +13,6 @@ export class TestHttpClientComponent implements OnInit {
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.todos$ = this.http.get(params.API_TEST);
-    /* .subscribe((data) => console.log(data)); */
+   /*  .subscribe((data) => console.log(data)); */
   }
 }

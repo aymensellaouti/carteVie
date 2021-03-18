@@ -1,6 +1,8 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Cv } from '../model/cv';
+import { params } from '../../generics';
 
 @Injectable({
   providedIn: 'root',
@@ -8,23 +10,40 @@ import { Cv } from '../model/cv';
 export class CvService {
   private cvs: Cv[] = [];
   selectItemSubject = new Subject<Cv>();
-  constructor() {
+  constructor(private http: HttpClient) {
     this.cvs = [
       new Cv(1, 'sellaouti', 'aymen', 'dev', 'as.jpg', 38, 123456),
       new Cv(2, 'test', 'test', 'dev', '', 38, 123456),
       new Cv(3, 'test', 'test', 'dev', '             ', 38, 123456),
     ];
   }
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.cvs;
   }
-  findCvById(id: number): Cv {
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(params.CV_API);
+  }
+
+  findFakeCvById(id: number): Cv {
     return this.cvs.find((cv) => cv.id === +id);
   }
+  findCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(params.CV_API + id);
+  }
+
   findCvByIdAndName(id: number, name: string): Cv {
     return this.cvs.find((cv) => cv.id === +id && cv.name === name);
   }
-  deleteCv(cv: Cv): boolean {
+  deleteCv(id: number): Observable<unknown> {
+    const httpParams = new HttpParams().set(
+      'access_token',
+      localStorage.getItem('token')
+    );
+    return this.http.delete<unknown>(params.CV_API + id, {
+      params: httpParams,
+    });
+  }
+  deleteFakeCv(cv: Cv): boolean {
     const index = this.cvs.indexOf(cv);
     if (index === -1) {
       return false;
@@ -34,9 +53,14 @@ export class CvService {
     }
   }
 
-  addCv(cv: Cv) {
+  addFakeCv(cv: Cv) {
     cv.id = this.cvs[this.cvs.length - 1].id + 1;
     this.cvs.push(cv);
+  }
+
+  addCv(cv: Cv): Observable<Cv> {
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
+    return this.http.post<Cv>(params.CV_API, cv, {headers});
   }
 
   selectItem(cv: Cv) {

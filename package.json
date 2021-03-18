@@ -21,6 +21,8 @@
     "@angular/router": "~9.1.9",
     "@sweetalert2/ngx-sweetalert2": "^9.0.0",
     "bootstrap": "^4.6.0",
+    "file-exists": "^5.0.1",
+    "file-system": "^2.2.2",
     "font-awesome": "^4.7.0",
     "ngx-toastr": "^13.2.0",
     "rxjs": "~6.5.4",

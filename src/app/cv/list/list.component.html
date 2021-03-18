@@ -1,6 +1,6 @@
 <ol class="list-group">
   <li
-    *ngFor="let actualCv of cvs; let isEven = even"
+    *ngFor="let actualCv of cvs$ |async; let isEven = even"
     class="list-group-item"
     [ngClass]="{
       'list-group-item-warning': isEven,
