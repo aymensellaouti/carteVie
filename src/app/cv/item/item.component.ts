@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cv } from '../model/cv';
+import { CvService } from '../services/cv.service';
 
 @Component({
   selector: 'app-item',
@@ -8,16 +9,17 @@ import { Cv } from '../model/cv';
 })
 export class ItemComponent implements OnInit {
   @Input() cv: Cv = null;
-  @Output() selectPersonne = new EventEmitter();
+  /*   @Output() selectPersonne = new EventEmitter(); */
   @Output() deleteItem = new EventEmitter();
   @Input() size = 50;
   @Input() isDiv = true;
   @Input() isDeleteButton = false;
-  constructor() {}
+  constructor(private cvService: CvService) {}
 
   ngOnInit(): void {}
   selectItem() {
-    this.selectPersonne.emit(this.cv);
+    this.cvService.selectItem(this.cv);
+    //this.selectPersonne.emit(this.cv);
   }
   clickOnDeleteButton() {
     this.deleteItem.emit(this.cv);

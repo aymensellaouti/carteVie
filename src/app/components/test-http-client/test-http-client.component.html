@@ -1,0 +1,7 @@
+<p>test-http-client works!</p>
+
+<ol class="list-group">
+  <li class="list-group-item" *ngFor="let todo of todos$ | async">
+    {{ todo.title }} {{ todo.state }}
+  </li>
+</ol>

@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -27,7 +30,6 @@ import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
 import { DetailComponent } from './cv/detail/detail.component';
@@ -37,6 +39,9 @@ import { Nf404Component } from './pages/nf404/nf404.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { TesthttpComponent } from './components/testhttp/testhttp.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { TestHttpClientComponent } from './components/test-http-client/test-http-client.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +75,9 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     TestFormComponent,
     LoginComponent,
     AddCvComponent,
+    TesthttpComponent,
+    SliderComponent,
+    TestHttpClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +85,8 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

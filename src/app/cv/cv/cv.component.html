@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col">
-    <app-list (forwardSelectedCv)="getSelectedCv($event)"></app-list>
+    <div *ngIf="nbre" class="alert alert-info">
+      Vous avez sélectionné {{ nbre }} cvs.
+    </div>
+    <app-list></app-list>
   </div>
-  <div class="col"><app-card [cv]="selectedCv"></app-card></div>
+  <div class="col"><app-card></app-card></div>
 </div>
 <div class="row">
   <app-embauche></app-embauche>
