@@ -11,6 +11,7 @@ import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.componen
 import { Nf404Component } from './pages/nf404/nf404.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
         path: 'cv',
         children: [
           { path: '', component: CvComponent },
-          { path: 'add', component: AddCvComponent },
+          { path: 'add', component: AddCvComponent, canActivate: [AuthGuard] },
           { path: ':id', component: DetailComponent },
         ],
       },

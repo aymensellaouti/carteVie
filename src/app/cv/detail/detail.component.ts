@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { Cv } from '../model/cv';
 import { CvService } from '../services/cv.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-detail',
@@ -18,7 +19,8 @@ export class DetailComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private cvService: CvService,
     private router: Router,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    public authService: AuthService
   ) {}
   ngOnDestroy(): void {
     this.deleteSubscription?.unsubscribe();
