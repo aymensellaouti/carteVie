@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { FirstComponent } from './components/first/first.component';
-import { TodoComponent } from './todo/todo/todo.component';
 import { ColorComponent } from './components/color/color.component';
 import { CvComponent } from './cv/cv/cv.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
@@ -28,9 +27,13 @@ const routes: Routes = [
           { path: ':id', component: DetailComponent },
         ],
       },
-      { path: 'todo', component: TodoComponent },
       { path: 'color/:myColor', component: ColorComponent },
       { path: 'word', component: MiniWordComponent },
+      {
+        path: 'todo',
+        loadChildren: () =>
+          import('./todo/todo.module').then((M) => M.TodoModule),
+      },
     ],
   },
   {
@@ -47,7 +50,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

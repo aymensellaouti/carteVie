@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -28,7 +28,6 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
-import { TodoComponent } from './todo/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
@@ -43,6 +42,12 @@ import { TesthttpComponent } from './components/testhttp/testhttp.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TestHttpClientComponent } from './components/test-http-client/test-http-client.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -65,7 +70,6 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     RainbowDirective,
     BtcToUsdPipe,
     DefaultImagePipe,
-    TodoComponent,
     EmbaucheComponent,
     HeaderComponent,
     RouterSimulatorComponent,
@@ -88,6 +92,14 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     ToastrModule.forRoot(), // ToastrModule added
     SweetAlert2Module.forRoot(),
     HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'fr',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
