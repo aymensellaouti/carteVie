@@ -8,7 +8,9 @@ import { params } from '../generics';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-
+  isAuthenticated() {
+    return (!! localStorage.getItem('token'));
+  }
   login(credentials): Observable<{ id: string }> {
     return this.http.post<{ id: string }>(params.AUTH_API, credentials);
   }

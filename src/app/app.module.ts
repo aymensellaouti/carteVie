@@ -42,6 +42,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { TesthttpComponent } from './components/testhttp/testhttp.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TestHttpClientComponent } from './components/test-http-client/test-http-client.component';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,7 @@ import { TestHttpClientComponent } from './components/test-http-client/test-http
     SweetAlert2Module.forRoot(),
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

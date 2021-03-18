@@ -35,13 +35,11 @@ export class CvService {
     return this.cvs.find((cv) => cv.id === +id && cv.name === name);
   }
   deleteCv(id: number): Observable<unknown> {
-    const httpParams = new HttpParams().set(
+/*     const httpParams = new HttpParams().set(
       'access_token',
       localStorage.getItem('token')
-    );
-    return this.http.delete<unknown>(params.CV_API + id, {
-      params: httpParams,
-    });
+    ); */
+    return this.http.delete<unknown>(params.CV_API + id);
   }
   deleteFakeCv(cv: Cv): boolean {
     const index = this.cvs.indexOf(cv);
@@ -59,8 +57,8 @@ export class CvService {
   }
 
   addCv(cv: Cv): Observable<Cv> {
-    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
-    return this.http.post<Cv>(params.CV_API, cv, {headers});
+
+    return this.http.post<Cv>(params.CV_API, cv);
   }
 
   selectItem(cv: Cv) {

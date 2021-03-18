@@ -21,8 +21,8 @@ export class DetailComponent implements OnInit, OnDestroy {
     private toaster: ToastrService
   ) {}
   ngOnDestroy(): void {
-    this.deleteSubscription.unsubscribe();
-    this.findSubscription.unsubscribe();
+    this.deleteSubscription?.unsubscribe();
+    this.findSubscription?.unsubscribe();
   }
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
